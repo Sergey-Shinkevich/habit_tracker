@@ -27,6 +27,7 @@ class Habit(models.Model):
     reward = models.CharField(max_length=255, null=True, blank=True, verbose_name="Вознаграждение")
     length = models.PositiveIntegerField(verbose_name="Время выполнения (в секундах)")
     is_public = models.BooleanField(default=False, verbose_name="Признак публичности")
+    last_sent = models.DateField(null=True, blank=True, verbose_name="Дата последней отправки")
 
     class Meta:
         verbose_name = "Привычка"
