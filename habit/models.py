@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from habit.validators import validate_habit_data
+
 
 class Habit(models.Model):
     owner = models.ForeignKey(
@@ -33,3 +35,6 @@ class Habit(models.Model):
 
     def __str__(self):
         return f"{self.action} в {self.time} ({self.place})"
+
+    def clean(self):
+        validate_habit_data({}, instance=self)
