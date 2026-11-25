@@ -62,3 +62,20 @@ exclude = '''
 line_length = 119
 profile = "black"
 
+[tool.coverage.run]
+source = ["."]
+omit = [
+    "*/migrations/*",
+    "*\\migrations\\*",
+    "*/tests.py",
+    "*\\tests.py",
+    "*/tests/*",
+    "*\\tests\\*",
+    "*/__init__.py",
+    "*\\__init__.py",
+    "manage.py",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

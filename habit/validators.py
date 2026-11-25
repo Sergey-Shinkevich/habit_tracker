@@ -19,26 +19,16 @@ def validate_habit_data(data, instance=None):
     length = _get_value(data, instance, "length")
 
     if reward and linked:
-        raise ValidationError(
-            "Нельзя одновременно указывать вознаграждение и связанную привычку."
-        )
+        raise ValidationError("Нельзя одновременно указывать вознаграждение и связанную привычку.")
 
     if length is not None and (length <= 0 or length > 120):
-        raise ValidationError(
-            "Время выполнения должно быть от 1 до 120 секунд."
-        )
+        raise ValidationError("Время выполнения должно быть от 1 до 120 секунд.")
 
     if linked is not None and not linked.is_pleasant:
-        raise ValidationError(
-            "В связанные привычки можно выбрать только привычку с признаком приятной."
-        )
+        raise ValidationError("В связанные привычки можно выбрать только привычку с признаком приятной.")
 
     if is_pleasant and (reward or linked is not None):
-        raise ValidationError(
-            "У приятной привычки не может быть вознаграждения или связанной привычки."
-        )
+        raise ValidationError("У приятной привычки не может быть вознаграждения или связанной привычки.")
 
     if period is not None and (period < 1 or period > 7):
-        raise ValidationError(
-            "Периодичность выполнения должна быть от 1 до 7 дней."
-        )
+        raise ValidationError("Периодичность выполнения должна быть от 1 до 7 дней.")

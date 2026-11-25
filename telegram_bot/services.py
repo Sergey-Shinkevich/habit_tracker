@@ -14,4 +14,3 @@ def send_telegram_message(chat_id: int, text: str) -> None:
         "text": text,
     }
     requests.post(url, json=payload, timeout=10)
-    

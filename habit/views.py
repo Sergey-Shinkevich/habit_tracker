@@ -60,4 +60,3 @@ class HabitDestroyView(generics.DestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
     permission_classes = (permissions.IsAuthenticated, IsOwner)
-
